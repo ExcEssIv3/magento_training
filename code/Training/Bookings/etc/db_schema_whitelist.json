@@ -1,0 +1,14 @@
+{
+    "training_bookings_bookings": {
+        "column": {
+            "id": true,
+            "name": true,
+            "age": true,
+            "dob": true,
+            "country": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

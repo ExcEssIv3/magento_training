@@ -1,0 +1,27 @@
+<table>
+    <tr>
+        <th><?=__('Name'); ?></th>
+        <th><?=__('Age'); ?></th>
+        <th><?=__('DOB'); ?></th>
+        <th><?=__('Country') ?></th>
+        <th colspan="2"><?=__('Action'); ?></th>
+    </tr>
+    <?php
+        $collectionData = $block->getData();
+        foreach($collectionData as $collection):
+    ?>
+    <tr>
+        <td><?=$collection["name"] ?></td>
+        <td><?=$collection["age"] ?></td>
+        <td><?=$collection["dob"] ?></td>
+        <td><?=$collection["country"] ?></td>
+        <td>
+            <a class="action primary" href="<?= $block->getUrl('bookings/index/edit') . '?id=' . $collection["id"] ?>">Edit</a>
+            <a class="action primary" href="<?= $block->getUrl('bookings/index/delete') . '?id=' . $collection["id"] ?>">Delete</a>
+        </td>
+
+    </tr>
+    <?php endforeach; ?>
+</table>
+
+<a class="action primary" href="<?=$block->getUrl('bookings/index/insert'); ?>">Add Record</a>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework/Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="training_bookings_bookings" resource="default" engine="innodb" comment="Bookings Table">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true" comment="index"/>
+        <column xsi:type="varchar" name="name" length="255" nullable="false" comment="name"/>
+        <column xsi:type="varchar" name="age" length="255" nullable="false" comment="age"/>
+        <column xsi:type="datetime" name="dob" nullable="false" comment="dob"/>
+        <column xsi:type="varchar" name="country" length="255" nullable="false" comment="country"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>

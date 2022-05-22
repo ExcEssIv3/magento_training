@@ -1,0 +1,45 @@
+<?php 
+if ($block->getEnabled()) {
+    $data = $block->getEditData();
+?>
+
+<form action="<?=$block->getUrl('bookings/index/save'); ?>" method="POST">
+    <fieldset>
+        <input name="id" type="hidden" value="<?php (isset($data["id"])) ? print $data["id"] : print -1; ?>">
+        <input name="form_key" type="hidden" value="<?php echo $block->getFormKey(); ?>">
+        Name:<br>
+        <input type="text" name="name" value="<?php if (isset($data["name"])) { echo $data["name"]; } ?>">
+        <br>
+        Age:<br>
+        <input type="text" name="age" value="<?php if (isset($data["age"])) { echo $data["age"]; } ?>">
+        <br>
+        Date of Birth:<br>
+        <input type="date" name="dob" value="<?php if (isset($data["dob"])) { echo date('Y-m-d', strtotime($data["dob"])); } ?>">
+        <br>
+        Country:<br>
+        <select name="country">
+            <option value = ''> </option>
+            <option value = 'Alabama' <?php if (isset($data["country"]) && $data["country"] == 'Alabama'){ echo 'selected'; } ?>>Alabama</option>
+            <option value = 'Arkansas' <?php if (isset($data["country"]) && $data["country"] == 'Arkansas'){ echo 'selected'; } ?>>Arkansas</option>
+            <option value = 'Florida' <?php if (isset($data["country"]) && $data["country"] == 'Florida'){ echo 'selected'; } ?>>Florida</option>
+            <option value = 'Georgia' <?php if (isset($data["country"]) && $data["country"] == 'Georgia'){ echo 'selected'; } ?>>Georgia</option>
+            <option value = 'Kentucky' <?php if (isset($data["country"]) && $data["country"] == 'Kentucky'){ echo 'selected'; } ?>>Kentucky</option>
+            <option value = 'Louisiana' <?php if (isset($data["country"]) && $data["country"] == 'Louisiana'){ echo 'selected'; } ?>>Louisiana</option>
+            <option value = 'Mississippi' <?php if (isset($data["country"]) && $data["country"] == 'Mississippi'){ echo 'selected'; } ?>>Mississippi</option>
+            <option value = 'Missouri' <?php if (isset($data["country"]) && $data["country"] == 'Missouri'){ echo 'selected'; } ?>>Missouri</option>
+            <option value = 'South Carolina' <?php if (isset($data["country"]) && $data["country"] == 'South Carolina'){ echo 'selected'; } ?>>South Carolina</option>
+            <option value = 'Tennessee' <?php if (isset($data["country"]) && $data["country"] == 'Tennessee'){ echo 'selected'; } ?>>Tennessee</option>
+            <option value = 'Texas' <?php if (isset($data["country"]) && $data["country"] == 'Texas'){ echo 'selected'; } ?>>Texas</option>
+        </select>
+        <br><br>
+        <input class="action primary" type="submit" name="submit" value="submit">
+    </fieldset>
+</form>
+<br>
+<a class="action primary" href="<?=$block->getUrl('bookings/index/index'); ?>">View Records</a>
+
+<?php
+} else {
+    echo "<h1>Module Closed.</h1>";
+}
+?>
