@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Training_Bookings::bookings" title="DCKAP" translate="title" module="Training_Bookings" sortOrder="51" dependsOnModule="Training_Bookings" resource="Magento_Backend::admin"/>
+        <add id="Training_Bookings::bookings_admin" title="Bookings" translate="title" module="Training_Bookings" parent="Training_Bookings::bookings" sortOrder="10" action="bookings/admin" resource="Magento_Backend::admin"/>
+        <!-- <add id="Training_Bookings::bookings_configuration" title="Configuration" module="Training_Bookings" sortOrder="99" parent="Training_Bookings::bookings" action="adminhtml/system_config/edit/section/bookings" resource="Training_Bookings::bookings_configuration"/> -->
+    </menu>
+</config>
