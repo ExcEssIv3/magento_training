@@ -40,6 +40,6 @@ if ($block->getEnabled()) {
 
 <?php
 } else {
-    echo "<h1>Module Closed.</h1>";
+    echo "<h1>" . $block->getDisableText() . "</h1>";
 }
 ?>

@@ -38,6 +38,10 @@ class Edit extends \Magento\Framework\View\Element\Template {
         return $this->_helperData->getGeneralConfig('enable');
     }
 
+    public function getDisableText() {
+        return $this->_helperData->getGeneralConfig('disabletext');
+    }
+
     public function getEditData() {
         $id = $this->getRequest()->getParam('id');
         $postData = $this->_bookingCollectionFactory->create();
