@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+   <update handle="formkey"/>
+   <update handle="bookings_listing_grid_block"/>
+   <body>
+      <referenceContainer name="content">
+         <block class="Training\Bookings\Block\Adminhtml\Listing" name="bookings_listing_grid_block.grid.container" />
+      </referenceContainer>
+   </body>
+   <!-- <referenceBlock name="page.title">
+        <action method="setPageTitle">
+            <argument name="title" xsi:type="string">Bookings List</argument>
+        </action>
+   </referenceBlock>
+   <body>
+      <referenceContainer name="content">
+         <block class="Magento\Backend\Block\Template" template="Training_Bookings::listing.phtml"/>
+      </referenceContainer>
+   </body> -->
+</page>
