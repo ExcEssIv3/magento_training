@@ -1,15 +1,14 @@
 <?php
 
-namespace Training\Bookings\Controller\Adminhtml\Admin;
+namespace Training\Bookings\Controller\Adminhtml\List;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\Action\HttpGetActionInterface;
-use Magento\Framework\View\Result\Page;
 use Magento\Framework\View\Result\PageFactory;
 
 class Index extends Action implements HttpGetActionInterface {
-    const MENU_ID = 'Training_Bookings::bookings_index';
+    const MENU_ID = 'Training_Bookings::bookings_list';
 
     protected $resultPageFactory;
 
@@ -22,12 +21,14 @@ class Index extends Action implements HttpGetActionInterface {
     }
 
     public function execute() {
-        $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu(static::MENU_ID);
-        // $resultPage->setBreadcrumb(__('Booking Data'), __('Booking Data'));
-        $resultPage->getConfig()->getTitle()->prepend(__('Hello World'));
+        // $resultPage = $this->resultPageFactory->create();
+        // $resultPage->setActiveMenu(static::MENU_ID);
+        // $resultPage->getConfig()->getTitle()->prepend(__('List'));
 
-        return $resultPage;
+        $this->_view->loadLayout();
+        $this->_view->renderLayout();
+
+        // return $resultPage;
     }
 }
 
