@@ -10,25 +10,25 @@ use Magento\Framework\View\Result\PageFactory;
 class Index extends Action implements HttpGetActionInterface {
     const MENU_ID = 'Training_Bookings::bookings_list';
 
-    protected $resultPageFactory;
+    protected $_resultPageFactory;
 
     public function __construct(
         Context $context,
         PageFactory $resultPageFactory
     ) {
         parent::__construct($context);
-        $this->resultPageFactory = $resultPageFactory;
+        $this->_resultPageFactory = $resultPageFactory;
     }
 
     public function execute() {
-        // $resultPage = $this->resultPageFactory->create();
-        // $resultPage->setActiveMenu(static::MENU_ID);
-        // $resultPage->getConfig()->getTitle()->prepend(__('List'));
+        $resultPage = $this->_resultPageFactory->create();
+        $resultPage->setActiveMenu(static::MENU_ID);
+        $resultPage->getConfig()->getTitle()->prepend(__('List'));
 
-        $this->_view->loadLayout();
-        $this->_view->renderLayout();
+        // $this->_view->loadLayout();
+        // $this->_view->renderLayout();
 
-        // return $resultPage;
+        return $resultPage;
     }
 }
 

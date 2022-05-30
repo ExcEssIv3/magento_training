@@ -6,8 +6,8 @@
         </action>
    </referenceBlock>
    <body>
-      <!-- <referenceContainer name="content">
-            <uiComponent name="bookings_list_listing"/>
-      </referenceContainer> -->
+      <referenceContainer name="content">
+         <uiComponent name="bookings_booking_listing"/>
+      </referenceContainer>
    </body>
 </page>

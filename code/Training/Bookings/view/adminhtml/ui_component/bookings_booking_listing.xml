@@ -5,29 +5,29 @@
     <argument name="data" xsi:type="array">
         <!-- define where to find the date source -->
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">training_bookings_booking_listing.training_bookings_booking_listing_data_source</item>
-            <item name="deps" xsi:type="string">training_bookings_booking_listing.training_bookings_booking_listing_data_source</item>
+            <item name="provider" xsi:type="string">bookings_booking_listing.bookings_booking_listing_data_source</item>
+            <item name="deps" xsi:type="string">bookings_booking_listing.bookings_booking_listing_data_source</item>
         </item>
         <!-- define where to find the columns -->
-        <item name="spinner" xsi:type="string">bookings_list_columns</item>
+        <item name="spinner" xsi:type="string">bookings_booking_listing_columns</item>
 
         <item name="buttons" xsi:type="array">
             <item name="add" xsi:type="array">
                 <item name="name" xsi:type="string">add</item>
                 <item name="label" xsi:type="string" translate="true">Add a New Booking</item>
                 <item name="class" xsi:type="string">primary</item>
-                <item name="url" xsi:type="string">*/*/newAction</item>
+                <item name="url" xsi:type="string">bookings/index/insert</item>
             </item>
         </item>
     </argument>
 
     <!-- define the data source (must be the same than in argument/item/provider and argument/js_config/deps -->
-    <dataSource name="training_bookings_booking_listing_data_source">
+    <dataSource name="bookings_booking_listing_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
             <!-- unique name for the grid -->
             <argument name="class" xsi:type="string">Training\Bookings\Ui\DataProvider\Booking\ListingDataProvider</argument>
             <!-- name of the data source same as in argument/js_config/provider -->
-            <argument name="name" xsi:type="string">training_bookings_booking_listing_data_source</argument>
+            <argument name="name" xsi:type="string">bookings_booking_listing_data_source</argument>
             <argument name="primaryFieldName" xsi:type="string">id</argument>
             <argument name="requestFieldName" xsi:type="string">id</argument>
             <argument name="data" xsi:type="array">
@@ -48,11 +48,11 @@
 
     <listingToolbar name="listing_top">
         <bookmark name="bookmarks"/>
-        <columnsControl name="columns_control"/>
+        <columnsControls name="columns_controls"/>
         <massaction name="listing_massaction">
             <argument name="data" xsi:type="array">
                 <item name="data" xsi:type="array">
-                    <item name="selectProvider" xsi:type="string">training_bookings_booking_listing.training_bookings_booking_listing.training_bookings_booking_listing_columns.ids</item>
+                    <item name="selectProvider" xsi:type="string">bookings_booking_listing.bookings_booking_listing.bookings_booking_listing_columns.ids</item>
                     <item name="displayArea" xsi:type="string">bottom</item>
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/tree-massactions</item>
                     <item name="indexField" xsi:type="string">id</item>
@@ -90,8 +90,14 @@
     </listingToolbar>
 
     <!-- define the columns of my grid -->
-    <columns name="training_bookings_booking_listing_columns">
-
+    <columns name="bookings_booking_listing_columns">
+        <!-- <settings>
+            <editorConfig>
+                <param name="indexField" xsi:type="string">id</param>
+                <param name="enabled" xsi:type="boolean">true</param>
+                <param name="selectProvider" xsi:type="string">${ $.columnsProvider }.ids</param>
+            </editorConfig>
+        </settings> -->
         <selectionsColumn name="ids">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -109,6 +115,12 @@
         <column name="name">
             <settings>
                 <filter>text</filter>
+                <!-- <editor>
+                    <validation>
+                        <rule name="required-entry" xsi:type="boolean">true</rule>
+                    </validation>
+                    <editorType>text</editorType>
+                </editor> -->
                 <bodyTmpl>ui/grid/cells/text</bodyTmpl>
                 <label translate="true">Name</label>
             </settings>
@@ -135,7 +147,7 @@
                     <item name="indexField" xsi:type="string">id</item>
                 </item>
             </argument>
-            <argument name="viewUrl" xsi:type="string">*/*/view</argument>
+            <argument name="viewUrl" xsi:type="string">bookings/index/index</argument>
         </actionsColumn>
     </columns>
 </listing>

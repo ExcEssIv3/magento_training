@@ -9,7 +9,7 @@
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="entity_listing_data_source1" xsi:type="string">Training\Bookings\Model\ResourceModel\Booking\Grid\Collection</item>
+                <item name="bookings_booking_listing_data_source" xsi:type="string">Training\Bookings\Model\ResourceModel\Booking\Grid\Collection</item>
             </argument>
         </arguments>
     </type>
