@@ -25,9 +25,6 @@ class Index extends Action implements HttpGetActionInterface {
         $resultPage->setActiveMenu(static::MENU_ID);
         $resultPage->getConfig()->getTitle()->prepend(__('List'));
 
-        // $this->_view->loadLayout();
-        // $this->_view->renderLayout();
-
         return $resultPage;
     }
 }

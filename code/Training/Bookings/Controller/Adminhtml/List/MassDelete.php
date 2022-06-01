@@ -11,7 +11,6 @@ use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\Exception\NotFoundException;
 use Magento\Ui\Component\MassAction\Filter;
-// use 
 
 class MassDelete extends Action implements HttpPostActionInterface {
     protected $_collectionFactory;

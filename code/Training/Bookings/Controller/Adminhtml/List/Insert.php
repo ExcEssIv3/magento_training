@@ -8,8 +8,7 @@ use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\View\Result\PageFactory;
 
 class Insert extends Action implements HttpGetActionInterface {
-    // const MENU_ID = 'Training_Bookings::bookings_list';
-    const MENU_ID = 'Training_Bookings::bookings_list_insert';
+    const MENU_ID = 'Training_Bookings::bookings_list';
 
     protected $_resultPageFactory;
 
@@ -25,9 +24,6 @@ class Insert extends Action implements HttpGetActionInterface {
         $resultPage = $this->_resultPageFactory->create();
         $resultPage->setActiveMenu(static::MENU_ID);
         $resultPage->getConfig()->getTitle()->prepend(__('New Booking'));
-
-        // $this->_view->loadLayout();
-        // $this->_view->renderLayout();
 
         return $resultPage;
     }

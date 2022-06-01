@@ -14,7 +14,7 @@ class Save implements HttpPostActionInterface {
         \Magento\Framework\App\RequestInterface $request,
         \Magento\Framework\Controller\Result\RedirectFactory $redirectFactory,
         \Training\Bookings\Model\ResourceModel\Booking $bookingResource,
-        \Training\Bookings\Model\BookingFactory $bookingFactory
+        \Training\Bookings\Model\BookingFactory $bookingFactory,
     ) {
         $this->_request = $request;
         $this->_redirectFactory = $redirectFactory;

@@ -22,12 +22,6 @@
         </item>
         <item name="template" xsi:type="string">templates/form/collapsible</item>
     </argument>
-    <!-- <settings>
-        <buttons>
-            <button name="save" class="Magento\Customer\Block\Adminhtml\Edit\SaveButton"/>
-            <button name="save" class="Training\Bookings\Block\Adminhtml\Edit\SaveButton"/>
-        </buttons>
-    </settings> -->
 
     <dataSource name="bookings_booking_insert_data_source">
         <argument name="data" xsi:type="array">
@@ -36,7 +30,6 @@
             </item>
         </argument>
         <settings>
-            <!-- <validateUrl path="booking/list/validate"/> -->
             <submitUrl path="bookings/list/save"/>
         </settings>
         <dataProvider class="Training\Bookings\Ui\DataProvider\Booking\BookingDataProvider" name="bookings_booking_insert_data_source">
@@ -52,20 +45,6 @@
             <label translate="true">Booking Information</label>
             <collapsible>false</collapsible>
         </settings>
-        <field name="id">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">bookings_booking_insert</item>
-                </item>
-            </argument>
-            <settings>
-                <visible>false</visible>
-                <dataScope>id</dataScope>
-                <label>Id</label>
-            </settings>
-        </field>
         <field name="name">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -98,7 +77,6 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="dataType" xsi:type="string">text</item>
-                    <!-- <item name="formElement" xsi:type="string">input</item> -->
                     <item name="source" xsi:type="string">bookings_booking_insert</item>
                 </item>
             </argument>
@@ -113,7 +91,6 @@
                 <dataType>text</dataType>
                 <label translate="true">Country</label>
                 <dataScope>country</dataScope>
-                <!-- <formElement>input</formElement> -->
             </settings>
             <formElements>
                 <multiselect>
@@ -124,12 +101,12 @@
                                 <item name="label" xsi:type="string" translate="true">Alabama</item>
                             </option>
                             <option name="Arkansas" xsi:type="array">
-                                <item name="value" xsi:type="string">Alabama</item>
-                                <item name="label" xsi:type="string" translate="true">Alabama</item>
-                            </option>
-                            <option name="Florida" xsi:type="array">
                                 <item name="value" xsi:type="string">Arkansas</item>
                                 <item name="label" xsi:type="string" translate="true">Arkansas</item>
+                            </option>
+                            <option name="Florida" xsi:type="array">
+                                <item name="value" xsi:type="string">Florida</item>
+                                <item name="label" xsi:type="string" translate="true">Florida</item>
                             </option>
                             <option name="Georgia" xsi:type="array">
                                 <item name="value" xsi:type="string">Georgia</item>

@@ -2,7 +2,6 @@
 
 namespace Training\Bookings\Controller\Index;
 
-use Magento\Framework\App\Action\HttpDeleteActionInterface;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 
 class Delete implements HttpGetActionInterface {
