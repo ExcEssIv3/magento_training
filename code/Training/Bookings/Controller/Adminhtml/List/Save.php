@@ -1,6 +1,6 @@
 <?php
 
-namespace Training\Bookings\Controller\Index;
+namespace Training\Bookings\Controller\Adminhtml\List;
 
 use Magento\Framework\App\Action\HttpPostActionInterface;
 
@@ -26,16 +26,10 @@ class Save implements HttpPostActionInterface {
         $redirect = $this->_redirectFactory->create();
         $input = $this->_request->getParams();
         $postData = $this->_bookingFactory->create();
-        if ($input['id'] != "-1") {
-            $this->_bookingResource->load($postData, $input['id']);
-            $postData->addData($input);
-            $this->_bookingResource->save($postData);
-        } else {
-            unset($input['id']);
-            $postData->setData($input);
-            $this->_bookingResource->save($postData);
-        }
-        $redirect->setPath('*/*/index', ['save'=>0]);
+        $input['country'] = $input['country'][0];
+        $postData->setData($input);
+        $this->_bookingResource->save($postData);
+        $redirect->setPath('*/*/index');
         return $redirect;
     }
 }
