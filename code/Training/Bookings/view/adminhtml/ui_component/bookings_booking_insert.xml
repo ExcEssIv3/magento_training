@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">bookings_booking_insert.bookings_booking_insert_data_source</item>
+            <item name="deps" xsi:type="string">bookings_booking_insert.bookings_booking_insert_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Booking Information</item>
+        <item name="reverseMetadataMerge" xsi:type="boolean">true</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">bookings_booking_insert</item>
+        </item>
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="array">
+                <item name="name" xsi:type="string">back</item>
+                <item name="label" xsi:type="string" translate="true">Back</item>
+                <item name="class" xsi:type="string">back</item>
+                <item name="url" xsi:type="string">bookings/list</item>
+            </item>
+            <item name="save" xsi:type="string">Training\Bookings\Block\Adminhtml\Insert\SaveButton</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <!-- <settings>
+        <buttons>
+            <button name="save" class="Magento\Customer\Block\Adminhtml\Edit\SaveButton"/>
+            <button name="save" class="Training\Bookings\Block\Adminhtml\Edit\SaveButton"/>
+        </buttons>
+    </settings> -->
+
+    <dataSource name="bookings_booking_insert_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <!-- <validateUrl path="booking/list/validate"/> -->
+            <submitUrl path="bookings/list/save"/>
+        </settings>
+        <dataProvider class="Training\Bookings\Ui\DataProvider\Booking\BookingDataProvider" name="bookings_booking_insert_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+    <fieldset name="bookings_booking_insert_fieldset">
+        <settings>
+            <label translate="true">Booking Information</label>
+            <collapsible>false</collapsible>
+        </settings>
+        <field name="id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">bookings_booking_insert</item>
+                </item>
+            </argument>
+            <settings>
+                <visible>false</visible>
+                <dataScope>id</dataScope>
+                <label>Id</label>
+            </settings>
+        </field>
+        <field name="name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">bookings_booking_insert</item>
+                </item>
+            </argument>
+            <settings>
+                <visible>true</visible>
+                <dataScope>name</dataScope>
+                <label>Name</label>
+            </settings>
+        </field>
+        <field name="age">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">bookings_booking_insert</item>
+                </item>
+            </argument>
+            <settings>
+                <visible>true</visible>
+                <dataScope>age</dataScope>
+                <label>Age</label>
+            </settings>
+        </field>
+        <field name="dob" formElement="date">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <!-- <item name="formElement" xsi:type="string">input</item> -->
+                    <item name="source" xsi:type="string">bookings_booking_insert</item>
+                </item>
+            </argument>
+            <settings>
+                <visible>true</visible>
+                <dataScope>dob</dataScope>
+                <label>Date of Birth</label>
+            </settings>
+        </field>
+        <field name="country" formElement="multiselect">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Country</label>
+                <dataScope>country</dataScope>
+                <!-- <formElement>input</formElement> -->
+            </settings>
+            <formElements>
+                <multiselect>
+                    <settings>
+                        <options>
+                            <option name="Alabama" xsi:type="array">
+                                <item name="value" xsi:type="string">Alabama</item>
+                                <item name="label" xsi:type="string" translate="true">Alabama</item>
+                            </option>
+                            <option name="Arkansas" xsi:type="array">
+                                <item name="value" xsi:type="string">Alabama</item>
+                                <item name="label" xsi:type="string" translate="true">Alabama</item>
+                            </option>
+                            <option name="Florida" xsi:type="array">
+                                <item name="value" xsi:type="string">Arkansas</item>
+                                <item name="label" xsi:type="string" translate="true">Arkansas</item>
+                            </option>
+                            <option name="Georgia" xsi:type="array">
+                                <item name="value" xsi:type="string">Georgia</item>
+                                <item name="label" xsi:type="string" translate="true">Georgia</item>
+                            </option>
+                            <option name="Kentucky" xsi:type="array">
+                                <item name="value" xsi:type="string">Kentucky</item>
+                                <item name="label" xsi:type="string" translate="true">Kentucky</item>
+                            </option>
+                            <option name="Louisiana" xsi:type="array">
+                                <item name="value" xsi:type="string">Louisiana</item>
+                                <item name="label" xsi:type="string" translate="true">Louisiana</item>
+                            </option>
+                            <option name="Mississippi" xsi:type="array">
+                                <item name="value" xsi:type="string">Mississippi</item>
+                                <item name="label" xsi:type="string" translate="true">Mississippi</item>
+                            </option>
+                            <option name="Missouri" xsi:type="array">
+                                <item name="value" xsi:type="string">Missouri</item>
+                                <item name="label" xsi:type="string" translate="true">Missouri</item>
+                            </option>
+                            <option name="South Carolina" xsi:type="array">
+                                <item name="value" xsi:type="string">South Carolina</item>
+                                <item name="label" xsi:type="string" translate="true">South Carolina</item>
+                            </option>
+                            <option name="Tennessee" xsi:type="array">
+                                <item name="value" xsi:type="string">Tennessee</item>
+                                <item name="label" xsi:type="string" translate="true">Tennessee</item>
+                            </option>
+                            <option name="Texas" xsi:type="array">
+                                <item name="value" xsi:type="string">Texas</item>
+                                <item name="label" xsi:type="string" translate="true">Texas</item>
+                            </option>
+                        </options>
+                    </settings>
+                </multiselect>
+            </formElements>
+        </field>
+    </fieldset>
+</form>

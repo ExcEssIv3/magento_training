@@ -4,5 +4,6 @@
         <add id="Training_Bookings::training" title="DCKAP" translate="title" module="Training_Bookings" sortOrder="51" dependsOnModule="Training_Bookings" resource="Magento_Backend::admin"/>
         <add id="Training_Bookings::bookings_helloworld" title="HelloWorld" translate="title" module="Training_Bookings" parent="Training_Bookings::training" sortOrder="10" action="bookings/helloworld" resource="Magento_Backend::admin"/>
         <add id="Training_Bookings::bookings_list" title="List" module="Training_Bookings" sortOrder="11" parent="Training_Bookings::training" action="bookings/list" resource="Magento_Backend::admin"/>
+        <add id="Training_Bookings::bookings_list_insert" title="Insert" module="Training_Bookings" sortOrder="12" parent="Training_Bookings::training" action="bookings/list/insert" resource="Magento_Backend::admin"/>
     </menu>
 </config>

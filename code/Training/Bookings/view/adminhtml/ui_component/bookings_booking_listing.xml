@@ -10,16 +10,16 @@
         </item>
         <!-- define where to find the columns -->
         <item name="spinner" xsi:type="string">bookings_booking_listing_columns</item>
-
-        <item name="buttons" xsi:type="array">
-            <item name="add" xsi:type="array">
-                <item name="name" xsi:type="string">add</item>
-                <item name="label" xsi:type="string" translate="true">Add a New Booking</item>
-                <item name="class" xsi:type="string">primary</item>
-                <item name="url" xsi:type="string">bookings/index/insert</item>
-            </item>
-        </item>
     </argument>
+    <settings>
+        <buttons>
+            <button name="add">
+                <url path="bookings/list/insert"/>
+                <class>primary</class>
+                <label translate="true">Add New Booking</label>
+            </button>
+        </buttons>
+    </settings>
 
     <!-- define the data source (must be the same than in argument/item/provider and argument/js_config/deps -->
     <dataSource name="bookings_booking_listing_data_source">
@@ -91,19 +91,100 @@
 
     <!-- define the columns of my grid -->
     <columns name="bookings_booking_listing_columns">
-        <!-- <settings>
+        <settings>
             <editorConfig>
+                <param name="clientConfig" xsi:type="array">
+                    <item name="saveUrl" xsi:type="url" path="bookings/list/inlineEdit"/>
+                    <item name="validateBeforeSave" xsi:type="boolean">false</item>
+                </param>
                 <param name="indexField" xsi:type="string">id</param>
                 <param name="enabled" xsi:type="boolean">true</param>
-                <param name="selectProvider" xsi:type="string">${ $.columnsProvider }.ids</param>
+                <!-- <param name="selectProvider" xsi:type="string">${ $.columnsProvider }.ids</param> -->
+                <param name="selectProvider" xsi:type="string">bookings_booking_listing.bookings_booking_listing.bookings_booking_listing_columns.ids</param>
+                <!-- <param name="viewConfig" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/editing/record</item>
+                    <item name="model" xsi:type="string">${ $.name }</item>
+                    <item name="tableSelector" xsi:type="string">${ $.rootSelector } -> table</item>
+                </param> -->
+                <param name="templates" xsi:type="array">
+                    <item name="record" xsi:type="array">
+                        <item name="templates" xsi:type="array">
+                            <item name="fields" xsi:type="array">
+                                <item name="multiselect" xsi:type="array">
+                                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/multiselect</item>
+                                    <item name="template" xsi:type="string">ui/form/element/multiselect</item>
+                                    <item name="options" xsi:type="array">
+                                        <item name="Alabama" xsi:type="array">
+                                            <item name="value" xsi:type="string">Alabama</item>
+                                            <item name="label" xsi:type="string" translate="true">Alabama</item>
+                                        </item>
+                                        <item name="Arkansas" xsi:type="array">
+                                            <item name="value" xsi:type="string">Arkansas</item>
+                                            <item name="label" xsi:type="string" translate="true">Arkansas</item>
+                                        </item>
+                                        <item name="Florida" xsi:type="array">
+                                            <item name="value" xsi:type="string">Florida</item>
+                                            <item name="label" xsi:type="string" translate="true">Florida</item>
+                                        </item>
+                                        <item name="Georgia" xsi:type="array">
+                                            <item name="value" xsi:type="string">Georgia</item>
+                                            <item name="label" xsi:type="string" translate="true">Georgia</item>
+                                        </item>
+                                        <item name="Kentucky" xsi:type="array">
+                                            <item name="value" xsi:type="string">Kentucky</item>
+                                            <item name="label" xsi:type="string" translate="true">Kentucky</item>
+                                        </item>
+                                        <item name="Louisiana" xsi:type="array">
+                                            <item name="value" xsi:type="string">Louisiana</item>
+                                            <item name="label" xsi:type="string" translate="true">Louisiana</item>
+                                        </item>
+                                        <item name="Mississippi" xsi:type="array">
+                                            <item name="value" xsi:type="string">Mississippi</item>
+                                            <item name="label" xsi:type="string" translate="true">Mississippi</item>
+                                        </item>
+                                        <item name="Missouri" xsi:type="array">
+                                            <item name="value" xsi:type="string">Missouri</item>
+                                            <item name="label" xsi:type="string" translate="true">Missouri</item>
+                                        </item>
+                                        <item name="South Carolina" xsi:type="array">
+                                            <item name="value" xsi:type="string">South Carolina</item>
+                                            <item name="label" xsi:type="string" translate="true">South Carolina</item>
+                                        </item>
+                                        <item name="Tennessee" xsi:type="array">
+                                            <item name="value" xsi:type="string">Tennessee</item>
+                                            <item name="label" xsi:type="string" translate="true">Tennessee</item>
+                                        </item>
+                                        <item name="Texas" xsi:type="array">
+                                            <item name="value" xsi:type="string">Texas</item>
+                                            <item name="label" xsi:type="string" translate="true">Texas</item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </param>
             </editorConfig>
-        </settings> -->
+            <childDefaults>
+                <param name="fieldAction" xsi:type="array">
+                    <item name="provider" xsi:type="string">bookings_booking_listing.bookings_booking_listing.bookings_booking_listing_columns_editor</item>
+                    <item name="target" xsi:type="string">startEdit</item>
+                    <item name="params" xsi:type="array">
+                        <item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
+                        <item name="1" xsi:type="boolean">true</item>
+                    </item>
+                </param>
+            </childDefaults>
+        </settings>
         <selectionsColumn name="ids">
-            <argument name="data" xsi:type="array">
+            <!-- <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="indexField" xsi:type="string">id</item>
                 </item>
-            </argument>
+            </argument> -->
+            <settings>
+                <indexField>id</indexField>
+            </settings>
         </selectionsColumn>
         <column name="id">
             <settings>
@@ -115,12 +196,12 @@
         <column name="name">
             <settings>
                 <filter>text</filter>
-                <!-- <editor>
+                <editor>
                     <validation>
                         <rule name="required-entry" xsi:type="boolean">true</rule>
                     </validation>
                     <editorType>text</editorType>
-                </editor> -->
+                </editor>
                 <bodyTmpl>ui/grid/cells/text</bodyTmpl>
                 <label translate="true">Name</label>
             </settings>
@@ -128,26 +209,87 @@
         <column name="age">
             <settings>
                 <filter>textRange</filter>
+                <editor>
+                    <validation>
+                        <rule name="required-entry" xsi:type="boolean">true</rule>
+                    </validation>
+                    <editorType>text</editorType>
+                </editor>
                 <bodyTmpl>ui/grid/cells/text</bodyTmpl>
                 <label translate="true">Age</label>
             </settings>
         </column>
         <column name="dob" class="Magento\Ui\Component\Listing\Columns\Date" component="Magento_Ui/js/grid/columns/date">
             <settings>
-                <filter>dateRange</filter>
+                <filter>date</filter>
+                <editor>
+                    <validation>
+                        <rule name="required-entry" xsi:type="boolean">true</rule>
+                    </validation>
+                    <editorType>date</editorType>
+                </editor>
                 <dataType>date</dataType>
                 <label translate="true">Date of Birth</label>
             </settings>
         </column>
-        <actionsColumn name="actions" class="Training\Bookings\Ui\Component\Booking\Listing\Column\Actions" sortOrder="200">
+        <column name="country" component="Magento_Ui/js/grid/columns/select">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="resizeEnabled" xsi:type="boolean">false</item>
-                    <item name="resizeDefaultWidth" xsi:type="string">107</item>
-                    <item name="indexField" xsi:type="string">id</item>
+                    <item name="options" xsi:type="array">
+                        <item name="Alabama" xsi:type="array">
+                            <item name="value" xsi:type="string">Alabama</item>
+                            <item name="label" xsi:type="string" translate="true">Alabama</item>
+                        </item>
+                        <item name="Arkansas" xsi:type="array">
+                            <item name="value" xsi:type="string">Arkansas</item>
+                            <item name="label" xsi:type="string" translate="true">Arkansas</item>
+                        </item>
+                        <item name="Florida" xsi:type="array">
+                            <item name="value" xsi:type="string">Florida</item>
+                            <item name="label" xsi:type="string" translate="true">Florida</item>
+                        </item>
+                        <item name="Georgia" xsi:type="array">
+                            <item name="value" xsi:type="string">Georgia</item>
+                            <item name="label" xsi:type="string" translate="true">Georgia</item>
+                        </item>
+                        <item name="Kentucky" xsi:type="array">
+                            <item name="value" xsi:type="string">Kentucky</item>
+                            <item name="label" xsi:type="string" translate="true">Kentucky</item>
+                        </item>
+                        <item name="Louisiana" xsi:type="array">
+                            <item name="value" xsi:type="string">Louisiana</item>
+                            <item name="label" xsi:type="string" translate="true">Louisiana</item>
+                        </item>
+                        <item name="Mississippi" xsi:type="array">
+                            <item name="value" xsi:type="string">Mississippi</item>
+                            <item name="label" xsi:type="string" translate="true">Mississippi</item>
+                        </item>
+                        <item name="Missouri" xsi:type="array">
+                            <item name="value" xsi:type="string">Missouri</item>
+                            <item name="label" xsi:type="string" translate="true">Missouri</item>
+                        </item>
+                        <item name="South Carolina" xsi:type="array">
+                            <item name="value" xsi:type="string">South Carolina</item>
+                            <item name="label" xsi:type="string" translate="true">South Carolina</item>
+                        </item>
+                        <item name="Tennessee" xsi:type="array">
+                            <item name="value" xsi:type="string">Tennessee</item>
+                            <item name="label" xsi:type="string" translate="true">Tennessee</item>
+                        </item>
+                        <item name="Texas" xsi:type="array">
+                            <item name="value" xsi:type="string">Texas</item>
+                            <item name="label" xsi:type="string" translate="true">Texas</item>
+                        </item>
+                    </item>
                 </item>
             </argument>
-            <argument name="viewUrl" xsi:type="string">bookings/index/index</argument>
-        </actionsColumn>
+            <settings>
+                <editor>
+                    <editorType>multiselect</editorType>
+                </editor>
+                <dataType>select</dataType>
+                <label translate="true">Country</label>
+            </settings>
+        </column>
     </columns>
 </listing>

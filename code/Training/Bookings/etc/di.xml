@@ -8,6 +8,15 @@
         <arguments>
             <argument name="collections" xsi:type="array">
                 <item name="bookings_booking_listing_data_source" xsi:type="string">TrainingBookingsBookingCollection</item>
+                <!-- <item name="bookings_booking_insert_data_source" xsi:type="string">TrainingBookingsBookingCollection</item> -->
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <!-- <item name="bookings_booking_listing_data_source" xsi:type="string">TrainingBookingsBookingCollection</item> -->
+                <item name="bookings_booking_insert_data_source" xsi:type="string">TrainingBookingsBookingCollection</item>
             </argument>
         </arguments>
     </type>
